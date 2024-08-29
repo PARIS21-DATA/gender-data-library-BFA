@@ -3,4 +3,16 @@ title: false
 styles: true
 ---
 
+
+/* Override Alembic theme color variables */
+$primary-color: #3498db; /* Example primary color */
+$secondary-color: #2ecc71; /* Example secondary color */
+$background-color: #df3e3e; /* Example background color */
+
+#tableContainer {
+  width: 100%;
+}
+
+/* Import Alembic styles */
 @import "alembic";
+

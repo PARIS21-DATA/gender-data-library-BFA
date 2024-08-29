@@ -1,0 +1,473 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Searchable HTML Table</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        .hidden { display: none; }
+        th { text-align: left; cursor: pointer; position: relative; } /* Left-align column names and add cursor pointer for sorting */
+        th::after { content: "Click to sort"; position: absolute; top: -20px; left: 0; background: #000; color: #fff; padding: 2px 5px; font-size: 0.8em; display: none; }
+        th:hover::after { display: block; } /* Show tooltip on hover */
+        .container { width: 97%; max-width: 100%; margin: 0 auto; } /* Ensure container takes full width */
+        table { width: 100%; font-size: 0.8em; line-height: 1.2; table-layout: fixed; } /* Make the table use the whole width of the page */
+        .search-container { display: flex; align-items: flex-start; gap: 20px; } /* Flexbox layout for search bars */
+        .search-container input[type="number"], .search-container input[type="text"] { width: 100px; margin-top: 0px; } /* Align the search boxes */
+        .search-container input[type="text"] { width: auto; flex-grow: 1; margin-top: 45px; } /* Make the description search box flexible */
+        .search-container label { margin-bottom: 0; } /* Remove bottom margin from labels */
+    </style>
+</head>
+<body>
+    <div class="container mt-4">
+        <h2>Searchable HTML Table</h2>
+        <div class="search-container">
+            <input type="text" id="searchInput" class="form-control mb-3" placeholder="Search descriptions...">
+            <div>
+                <label for="startYear">Start Year:</label>
+                <input type="number" id="startYear" class="form-control" placeholder="YYYY" min="1900" max="2100">
+            </div>
+            <div>
+                <label for="endYear">End Year:</label>
+                <input type="number" id="endYear" class="form-control" placeholder="YYYY" min="1900" max="2100">
+            </div>
+        </div>
+        <div class="mb-3">
+            <label><input type="checkbox" class="toggle-column" data-column="0" checked> Title</label>
+            <label><input type="checkbox" class="toggle-column" data-column="1" checked> Publication Date</label>
+            <label><input type="checkbox" class="toggle-column" data-column="2" checked> Description</label>
+            <label><input type="checkbox" class="toggle-column" data-column="3" checked> Source</label>
+            <label><input type="checkbox" class="toggle-column" data-column="4" checked> Language</label>
+        </div>
+        <div id="tableContainer">
+            <table border="0" class="dataframe table table-striped" style="width: 100%; font-size: 0.8em; line-height: 1.2; table-layout:auto; font-family: Arial, serif">
+            <!-- HTML table will be inserted here -->
+              <thead>
+    <tr style="text-align: right;">
+      <th>title</th>
+      <th>date</th>
+      <th>description</th>
+      <th>source</th>
+      <th>language</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="nan" target="_blank">nan</a></td>
+      <td></td>
+      <td>This paper uses a prospective randomized trial to assess the impact of two school feeding schemes on...</td>
+      <td></td>
+      <td>en</td>
+    </tr>
+    <tr>
+      <td><a href="https://doi.org/10.1016/j.childyouth.2023.107232" target="_blank">“Since the market is closed, there is no more money, there is nothing we can do”: Voices of adolescent girls in Burkina Faso and Sierra Leone on poverty and COVID-19</a></td>
+      <td>2023</td>
+      <td>"The COVID-19 pandemic is expected to widen inequalities and hamper the SDG commitments of gender eq...</td>
+      <td>Children and Youth Services Review</td>
+      <td>en</td>
+    </tr>
+    <tr>
+      <td><a href="https://doi.org/10.1016/j.jadohealth.2021.09.015" target="_blank">What Influences Girls' Age at Marriage in Burkina Faso and Tanzania? Exploring the Contribution of Individual, Household, and Community Level Factors</a></td>
+      <td>2021</td>
+      <td>This comparative study explores the connections between potential drivers of child marriage among gi...</td>
+      <td>Journal of Adolescent Health</td>
+      <td>en</td>
+    </tr>
+    <tr>
+      <td><a href="https://doi.org/10.1016/j.cdnut.2023.102053" target="_blank">Defining a Dichotomous Indicator for Population-Level Assessment of Dietary Diversity Among Pregnant Adolescent Girls and Women: A Secondary Analysis of Quantitative 24-h Recalls from Rural Settings in Bangladesh, Burkina Faso, India, and Nepal</a></td>
+      <td>2024</td>
+      <td>Background: The Minimum Dietary Diversity for Women of Reproductive Age (MDD-W) indicator was valida...</td>
+      <td>Current Developments in Nutrition</td>
+      <td>en</td>
+    </tr>
+    <tr>
+      <td><a href="https://doi.org/10.1257/app.5.3.41" target="_blank">The Effects of “Girl-Friendly” Schools: Evidence from the BRIGHT School Construction Program in Burkina Faso</a></td>
+      <td>2013</td>
+      <td>We evaluate a “girl-friendly” primary school program in Burkina Faso using a regression discontinui...</td>
+      <td>American Economic Journal: Applied Economics</td>
+      <td>en</td>
+    </tr>
+    <tr>
+      <td><a href="https://doi.org/10.1089/jwh.2020.8882" target="_blank">Social and Structural Determinants of Health Inequities in Maternal Health</a></td>
+      <td>2021</td>
+      <td>A substantial proportion of female sex workers in Burkina Faso started selling sex as minors. The fi...</td>
+      <td>Journal of Women's Health</td>
+      <td>en</td>
+    </tr>
+    <tr>
+      <td><a href="https://doi.org/10.31899/rh3.1001" target="_blank">Analysis of the evolution of the practice of female genital mutilation/cutting in Burkina Faso</a></td>
+      <td>2008</td>
+      <td>Virtually all ethnic groups in Burkina Faso practice FGM/C; the 2003 DHS indicated a national preval...</td>
+      <td></td>
+      <td>en</td>
+    </tr>
+    <tr>
+      <td><a href="https://doi.org/10.1596/1813-9450-4976" target="_blank">Educational And Health Impacts Of Two School Feeding Schemes: Evidence From A Randomized Trial In Rural Burkina Faso</a></td>
+      <td>2009</td>
+      <td>We use a prospective randomized trial to assess the impact of two school feeding schemes on educatio...</td>
+      <td>Policy Research Working Papers</td>
+      <td>en</td>
+    </tr>
+    <tr>
+      <td><a href="https://doi.org/10.9745/ghsp-d-22-00217" target="_blank">Designing and Implementing the Adaptive Learning Meeting Cycle: The (re)solve Project Experience in Burkina Faso</a></td>
+      <td>2023</td>
+      <td>Through the collection and utilization of timely data, program implementers can review feedback and ...</td>
+      <td>Global Health: Science and Practice</td>
+      <td>en</td>
+    </tr>
+    <tr>
+      <td><a href="nan" target="_blank">nan</a></td>
+      <td></td>
+      <td>Observations of female genital cutting practices were undertaken in clinics in rural Burkina Faso an...</td>
+      <td></td>
+      <td>en</td>
+    </tr>
+    <tr>
+      <td><a href="https://doi.org/10.31899/pgy3.1006" target="_blank">Girls' adolescence in Burkina Faso: A pivot point for social change</a></td>
+      <td>2007</td>
+      <td>This report explores the significance of girls' adolescence as a critical period for social change i...</td>
+      <td></td>
+      <td>en</td>
+    </tr>
+    <tr>
+      <td><a href="https://doi.org/10.2139/ssrn.2840992" target="_blank">The Impact of Legislation on the Hazard of Female Genital Mutilation/Cutting: Regression Discontinuity Evidence from Burkina Faso</a></td>
+      <td></td>
+      <td>In 1996 Burkina Faso enacted legislation banning the practice of female genital mutilation/cutting (...</td>
+      <td>SSRN Electronic Journal</td>
+      <td>en</td>
+    </tr>
+    <tr>
+      <td><a href="nan" target="_blank">nan</a></td>
+      <td></td>
+      <td>Discrimination in favour of boys in household resource allocation has been shown in a number of stud...</td>
+      <td></td>
+      <td>en</td>
+    </tr>
+    <tr>
+      <td><a href="https://doi.org/10.1371/journal.pgph.0000910" target="_blank">Does a school-based intervention increase girls’ sexual and reproductive health attitudes and intentions? Results from a mixed-methods cluster-randomized trial in Burkina Faso</a></td>
+      <td>2023</td>
+      <td>Adolescent girls in Burkina Faso face unintended pregnancy risk due to a lack of contraceptive use. ...</td>
+      <td>PLOS Global Public Health</td>
+      <td>en</td>
+    </tr>
+    <tr>
+      <td><a href="https://doi.org/10.1111/mcn.12928" target="_blank">Early development in children with moderate acute malnutrition: A cross‐sectional study in Burkina Faso</a></td>
+      <td>2020</td>
+      <td>AbstractMalnutrition impairs cognitive, communication, and motor development, but it is not known ho...</td>
+      <td>Maternal &amp; Child Nutrition</td>
+      <td>en</td>
+    </tr>
+    <tr>
+      <td><a href="https://doi.org/10.1126/science.1106929" target="_blank">NIH Public Access Policy</a></td>
+      <td>2004</td>
+      <td>Coercive experiences at sexual debut have been shown to be associated with other sexual risks throug...</td>
+      <td>Science</td>
+      <td>en</td>
+    </tr>
+    <tr>
+      <td><a href="https://doi.org/10.1126/science.1106929" target="_blank">NIH Public Access Policy</a></td>
+      <td>2004</td>
+      <td>Adolescents’ views of and preferences for sexual and reproductive health services highlight promisin...</td>
+      <td>Science</td>
+      <td>en</td>
+    </tr>
+    <tr>
+      <td><a href="https://doi.org/10.4236/ojog.2021.1112163" target="_blank">Cesarean Section Indications and Prognosis in Adolescents Girls at the Mother-Child Pool of the Teaching Hospital of Tengandogo (CHU-T) in Burkina Faso</a></td>
+      <td>2021</td>
+      <td>Objective: Conduct a study on cesarean sections in adolescent girls at the mother-child pool of the ...</td>
+      <td>Open Journal of Obstetrics and Gynecology</td>
+      <td>en</td>
+    </tr>
+    <tr>
+      <td><a href="https://doi.org/10.1016/s2215-0366(23)00399-1" target="_blank">Sexual victimisation, peer victimisation, and mental health outcomes among adolescents in Burkina Faso: a prospective cohort study</a></td>
+      <td>2024</td>
+      <td>Background Sexual victimisation and peer victimisation are pervasive and increase risk for mental il...</td>
+      <td>The Lancet Psychiatry</td>
+      <td>en</td>
+    </tr>
+    <tr>
+      <td><a href="https://doi.org/10.1186/s12978-023-01588-x" target="_blank">Socio-ecological factors associated with probable depression among pregnant and parenting adolescent girls: findings from a cross-sectional study in Burkina Faso and Malawi</a></td>
+      <td>2023</td>
+      <td>Abstract\nBackground\nPregnant and parenting adolescent girls are at risk of poor mental health becaus...</td>
+      <td>Reproductive Health</td>
+      <td>en</td>
+    </tr>
+    <tr>
+      <td><a href="https://doi.org/10.31899/pgy8.1035" target="_blank">The impact and cost of child marriage prevention in rural Burkina Faso</a></td>
+      <td>2017</td>
+      <td>"This Report is brought to you for free and open access by the Population Council."</td>
+      <td></td>
+      <td>en</td>
+    </tr>
+    <tr>
+      <td><a href="https://doi.org/10.3945/ajcn.2008.26296" target="_blank">Effects of maternal multiple micronutrient supplementation on fetal growth: a double-blind randomized controlled trial in rural Burkina Faso</a></td>
+      <td>2008</td>
+      <td>Background: Intrauterine growth retardation is a major predictor of child health in developing count...</td>
+      <td>The American Journal of Clinical Nutrition</td>
+      <td>en</td>
+    </tr>
+    <tr>
+      <td><a href="https://doi.org/10.3945/ajcn.2009.28253" target="_blank">Prenatal food supplementation fortified with multiple micronutrients increases birth length: a randomized controlled trial in rural Burkina Faso</a></td>
+      <td>2009</td>
+      <td>Background: Prenatal multiple micronutrient (MMN) or balanced energy and protein supplementation has...</td>
+      <td>The American Journal of Clinical Nutrition</td>
+      <td>en</td>
+    </tr>
+    <tr>
+      <td><a href="https://doi.org/10.1016/j.ijgo.2016.08.017" target="_blank">Factors associated with very early neonatal mortality in Burkina Faso: A matched case–control study</a></td>
+      <td>2016</td>
+      <td>AbstractObjectiveTo identify the risk factors associated with very early neonatal death in Burkina F...</td>
+      <td>International Journal of Gynecology &amp; Obstetrics</td>
+      <td>en</td>
+    </tr>
+    <tr>
+      <td><a href="https://doi.org/10.1016/j.socscimed.2018.09.001" target="_blank">Policy, paperwork and ‘postographs’: Global indicators and maternity care documentation in rural Burkina Faso</a></td>
+      <td>2018</td>
+      <td>Targets and indicators set at the global level are powerful tools that govern health systems in low-...</td>
+      <td>Social Science &amp; Medicine</td>
+      <td>en</td>
+    </tr>
+    <tr>
+      <td><a href="https://doi.org/10.1186/1475-2875-11-71" target="_blank">An analysis of timing and frequency of malaria infection during pregnancy in relation to the risk of low birth weight, anaemia and perinatal mortality in Burkina Faso</a></td>
+      <td>2012</td>
+      <td>A prospective study aiming at assessing the effect of adding a third dose sulphadoxine-pyrimethamine...</td>
+      <td>Malaria Journal</td>
+      <td>en</td>
+    </tr>
+    <tr>
+      <td><a href="https://doi.org/10.1080/00016340500324357" target="_blank">Multiple pregnancy in rural Burkina Faso: frequency, survival, and use of health services</a></td>
+      <td>2006</td>
+      <td>AbstractObjective. To assess the birth of twins in rural Burkina Faso with respect to prevalence, mo...</td>
+      <td>Acta Obstetricia et Gynecologica Scandinavica</td>
+      <td>en</td>
+    </tr>
+    <tr>
+      <td><a href="https://doi.org/10.1017/s0043887115000465" target="_blank">“Documents, Please”</a></td>
+      <td>2016</td>
+      <td>A birth certificate is essential to exercising citizenship, yet vast numbers of poor people in devel...</td>
+      <td>World Politics</td>
+      <td>en</td>
+    </tr>
+    <tr>
+      <td><a href="https://doi.org/10.2471/blt.18.221705" target="_blank">Controlled impact evaluation of a birth registration intervention, Burkina Faso</a></td>
+      <td>2019</td>
+      <td>Civil registration records the occurrence and characteristics of vital events, providing individuals...</td>
+      <td>Bulletin of the World Health Organization</td>
+      <td>en</td>
+    </tr>
+    <tr>
+      <td><a href="https://doi.org/10.1136/bmj.38261.496366.82" target="_blank">Non-specific effects of vaccination on child survival: prospective cohort study in Burkina Faso</a></td>
+      <td>2004</td>
+      <td>Objective To study the effect of vaccination on mortality before 2 years of age in a developing coun...</td>
+      <td>BMJ</td>
+      <td>en</td>
+    </tr>
+    <tr>
+      <td><a href="https://doi.org/10.1186/s12889-021-11483-4" target="_blank">Patterns of child mortality in rural area of Burkina Faso: evidence from the Nanoro health and demographic surveillance system (HDSS)</a></td>
+      <td>2021</td>
+      <td>Abstract\nBackground\nHalf of global child deaths occur in sub-Saharan Africa. Understanding child mor...</td>
+      <td>BMC Public Health</td>
+      <td>en</td>
+    </tr>
+    <tr>
+      <td><a href="https://doi.org/10.1093/ije/dyi150" target="_blank">Season of death and birth predict patterns of mortality in Burkina Faso</a></td>
+      <td>2006</td>
+      <td>Overall mortality was found to be consistently higher during the dry season (November to May). The p...</td>
+      <td>International Journal of Epidemiology</td>
+      <td>en</td>
+    </tr>
+    <tr>
+      <td><a href="https://doi.org/10.1136/bmjopen-2017-020410" target="_blank">Prevalence of low birth weight and its association with maternal body weight status in selected countries in Africa: a cross-sectional study</a></td>
+      <td>2018</td>
+      <td>ObjectivesThe present study aimed to estimate the prevalence of low birth weight (LBW), and to inves...</td>
+      <td>BMJ Open</td>
+      <td>en</td>
+    </tr>
+    <tr>
+      <td><a href="https://doi.org/10.1136/bmjopen-2020-038393" target="_blank">Effect of balanced energy-protein supplementation during pregnancy and lactation on birth outcomes and infant growth in rural Burkina Faso: study protocol for a randomised controlled trial</a></td>
+      <td>2021</td>
+      <td>IntroductionAdequate nutrition during pregnancy is crucial to both mother and child. Maternal malnut...</td>
+      <td>BMJ Open</td>
+      <td>en</td>
+    </tr>
+    <tr>
+      <td><a href="https://doi.org/10.1136/bmjopen-2021-055241" target="_blank">Does hospital variation in intrapartum-related perinatal mortality among caesarean births reflect differences in quality of care? Cross-sectional study in 21 hospitals in Burkina Faso</a></td>
+      <td>2022</td>
+      <td>ObjectivesTo examine hospital variation in crude and risk-adjusted rates of intrapartum-related peri...</td>
+      <td>BMJ Open</td>
+      <td>en</td>
+    </tr>
+    <tr>
+      <td><a href="https://doi.org/10.34172/ijhpm.2020.83" target="_blank">An Exploration of the Unintended Consequences of Performance-Based Financing in 6 Primary Healthcare Facilities in Burkina Faso</a></td>
+      <td>2020</td>
+      <td>\nBackground: Performance-based financing (PBF) is promoted to improve the quality and quantity of he...</td>
+      <td>International Journal of Health Policy and Management</td>
+      <td>en</td>
+    </tr>
+    <tr>
+      <td><a href="https://doi.org/10.1371/journal.pmed.1004002" target="_blank">Prenatal fortified balanced energy-protein supplementation and birth outcomes in rural Burkina Faso: A randomized controlled efficacy trial</a></td>
+      <td>2022</td>
+      <td>BackgroundProviding balanced energy–protein (BEP) supplements is a promising intervention to improve...</td>
+      <td>PLOS Medicine</td>
+      <td>en</td>
+    </tr>
+    <tr>
+      <td><a href="https://doi.org/10.1186/s12884-021-04310-6" target="_blank">Antenatal care attendance and risk of low birthweight in Burkina Faso: a cross-sectional study</a></td>
+      <td>2021</td>
+      <td>Abstract\nBackground\nLow birthweight is a major contributor to infant mortality. We evaluated the ass...</td>
+      <td>BMC Pregnancy and Childbirth</td>
+      <td>en</td>
+    </tr>
+    <tr>
+      <td><a href="https://doi.org/10.3402/gha.v3i0.5284" target="_blank">The Health and Demographic Surveillance System (HDSS) in Nouna, Burkina Faso, 1993–2007</a></td>
+      <td>2010</td>
+      <td>The Nouna Health and Demographic Surveillance System (HDSS) is located in rural Burkina Faso and has...</td>
+      <td>Global Health Action</td>
+      <td>en</td>
+    </tr>
+    <tr>
+      <td><a href="nan" target="_blank">nan</a></td>
+      <td></td>
+      <td>Neonatal arm circumference (NAC) and other attributes of the newborn and its household were analysed...</td>
+      <td></td>
+      <td>en</td>
+    </tr>
+    <tr>
+      <td><a href="https://doi.org/10.1111/tmi.12682" target="_blank">Characteristics of neonatal near miss in hospitals in Benin, Burkina Faso and Morocco in 2012–2013</a></td>
+      <td>2016</td>
+      <td>AbstractObjectiveThe objective of this study is to explore the usefulness of neonatal near miss in l...</td>
+      <td>Tropical Medicine &amp; International Health</td>
+      <td>en</td>
+    </tr>
+    <tr>
+      <td><a href="https://doi.org/10.1016/j.jrurstud.2020.02.011" target="_blank">Intersecting and dynamic gender rights to néré, a food tree species in Burkina Faso</a></td>
+      <td>2020</td>
+      <td>This study examines women's bundles of rights to exploit the pods of a valuable food-tree species in...</td>
+      <td>Journal of Rural Studies</td>
+      <td>en</td>
+    </tr>
+    <tr>
+      <td><a href="https://doi.org/10.1016/j.jrurstud.2023.103026" target="_blank">Can a gender-sensitive integrated poultry value chain and nutrition intervention increase women's empowerment among the rural poor in Burkina Faso?</a></td>
+      <td>2023</td>
+      <td>Understanding the types of food systems interventions that foster women’s empowerment and the types ...</td>
+      <td>Journal of Rural Studies</td>
+      <td>en</td>
+    </tr>
+    <tr>
+      <td><a href="https://doi.org/10.1186/1471-2458-12-147" target="_blank">Measuring women's perceived ability to overcome barriers to healthcare seeking in Burkina Faso</a></td>
+      <td>2012</td>
+      <td>Background: In sub-Saharan Africa, women must overcome numerous barriers when they need modern healt...</td>
+      <td>BMC Public Health</td>
+      <td>en</td>
+    </tr>
+    <tr>
+      <td><a href="https://doi.org/10.11564/28-0-563" target="_blank">Relationship between women’s socioeconomic status and empowerment in Burkina Faso: A focus on participation in decision-making and experience of domestic violence</a></td>
+      <td>2014</td>
+      <td>Since 2009, the Burkina Faso government has launched a national policy to empower women and to bette...</td>
+      <td>African Population Studies</td>
+      <td>en</td>
+    </tr>
+    <tr>
+      <td><a href="https://doi.org/10.1080/00220388.2015.1036036" target="_blank">Can Integrated Agriculture-Nutrition Programmes Change Gender Norms on Land and Asset Ownership? Evidence from Burkina Faso</a></td>
+      <td>2015</td>
+      <td>This article uses a mixed-methods approach to analyse the impact of an integrated agriculture and nu...</td>
+      <td>The Journal of Development Studies</td>
+      <td>en</td>
+    </tr>
+    <tr>
+      <td><a href="https://doi.org/10.1016/j.forpol.2009.06.002" target="_blank">Determinants of access to forest products in southern Burkina Faso</a></td>
+      <td>2009</td>
+      <td>There is an increasing understanding that forests and the forestry sector are key elements in povert...</td>
+      <td>Forest Policy and Economics</td>
+      <td>en</td>
+    </tr>
+    <tr>
+      <td><a href="https://doi.org/10.21203/rs.3.rs-2426011/v1" target="_blank">Agro-ecological characteristics and gender gap in cereal productivity: evidence from small households in Burkina Faso</a></td>
+      <td></td>
+      <td>Abstract\nThis paper analyzes the impact of agro-ecological partitioning on the gender gap in cereal ...</td>
+      <td></td>
+      <td>en</td>
+    </tr>
+    <tr>
+      <td><a href="nan" target="_blank">nan</a></td>
+      <td></td>
+      <td>In Africa’s ‘shea belt’, the shea tree (Vitellaria paradoxa) plays a central role in rural livelihoo...</td>
+      <td></td>
+      <td>en</td>
+    </tr>
+    <tr>
+      <td><a href="https://doi.org/10.1353/jhr.2009.0011" target="_blank">Flexibility of Household Structure: Child Fostering Decisions in Burkina Faso</a></td>
+      <td>2009</td>
+      <td>Using data collected in Africa, this paper examines a household’s decision to adjust its size throug...</td>
+      <td>Journal of Human Resources</td>
+      <td>en</td>
+    </tr>
+  </tbody>
+</table>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('searchInput');
+            const startYearInput = document.getElementById('startYear');
+            const endYearInput = document.getElementById('endYear');
+            const table = document.querySelector('table');
+            const rows = table.querySelectorAll('tbody tr');
+            const checkboxes = document.querySelectorAll('.toggle-column');
+            const headers = table.querySelectorAll('th');
+
+            function filterRows() {
+                const searchTerm = searchInput.value.toLowerCase();
+                const startYear = parseInt(startYearInput.value, 10);
+                const endYear = parseInt(endYearInput.value, 10);
+
+                rows.forEach(row => {
+                    const description = row.cells[2].textContent.toLowerCase();
+                    const publicationDate = parseInt(row.cells[1].textContent, 10);
+                    const matchesSearch = description.includes(searchTerm);
+                    const matchesYearRange = (!isNaN(startYear) ? publicationDate >= startYear : true) &&
+                                             (!isNaN(endYear) ? publicationDate <= endYear : true);
+
+                    row.style.display = matchesSearch && matchesYearRange ? '' : 'none';
+                });
+            }
+
+            function sortTable(columnIndex, ascending) {
+                const rowsArray = Array.from(rows);
+                rowsArray.sort((a, b) => {
+                    const aText = a.cells[columnIndex].textContent.trim();
+                    const bText = b.cells[columnIndex].textContent.trim();
+                    if (!isNaN(aText) && !isNaN(bText)) {
+                        return ascending ? aText - bText : bText - aText;
+                    }
+                    return ascending ? aText.localeCompare(bText) : bText.localeCompare(aText);
+                });
+                rowsArray.forEach(row => table.querySelector('tbody').appendChild(row));
+            }
+
+            headers.forEach((header, index) => {
+                let ascending = true;
+                header.addEventListener('click', () => {
+                    sortTable(index, ascending);
+                    ascending = !ascending;
+                });
+            });
+
+            searchInput.addEventListener('input', filterRows);
+            startYearInput.addEventListener('input', filterRows);
+            endYearInput.addEventListener('input', filterRows);
+
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    const column = checkbox.getAttribute('data-column');
+                    const cells = table.querySelectorAll(`td:nth-child(${parseInt(column) + 1}), th:nth-child(${parseInt(column) + 1})`);
+                    cells.forEach(cell => {
+                        cell.classList.toggle('hidden', !checkbox.checked);
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
