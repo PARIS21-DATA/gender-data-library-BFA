@@ -91,7 +91,7 @@ title: "Gender Data Library - BFA" # Site name or title, also used in jekyll-seo
 logo: "/assets/logos/P21_insd_site.svg" # Site logo, also used in jekyll-seo-tag
 description: "Gendet Data Library" # Site description and default description, also used in jekyll-seo-tag
 url: "/gender-data-use-BFA/" # Site url, also used in jekyll-seo-tag
-baseurl: ""
+baseurl: "/gender-data-use-BFA/"
 repo: "" # Site repository, used in jekyll-seo-tag
 email: ""
 # disqus: "alembic-1" # Blog post comments, uncomment the option and set the site ID from your Disqus account
