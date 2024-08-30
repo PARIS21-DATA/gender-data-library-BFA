@@ -40,7 +40,7 @@ author: PARIS21 # jekyll-seo-tag > default author
 social: # jekyll-seo-tag > social overrides
   name: PARIS21 # jekyll-seo-tag > real name
   links:  # jekyll-seo-tag > social aliases (sameAs)
-    - https://x.com/DavidDarnes
+    - https://x.com/ContanctPARIS21
     - https://www.linkedin.com/company/paris21/
 # markdown: CommonMark # Markdown parse settings, CommonMark performs slightly better an others in build time
 # commonmark:
@@ -55,7 +55,7 @@ excerpt_separator: <!-- more --> # Marks end of excerpt in posts
 #timezone: Europe/London # Timezone for blog posts and alike
 
 # 5. Collections
-# collections:
+#collections:
 #   posts:
 #     title: Posts # Needed for Siteleaf
 #     output: true
@@ -70,7 +70,7 @@ defaults:
     scope:
       path: ""
     values:
-      image: "/assets/default-social-image.png" # Default image for sharing
+      image: "/assets/gender_data_cover.jpg" # Default image for sharing
   -
     scope:
       path: ""
@@ -87,13 +87,13 @@ defaults:
 # 7. Site settings
 encoding: utf-8 # Make sure the encoding is right
 lang: en-GB # Set the site language
-title: "Gender Data Use - BFA" # Site name or title, also used in jekyll-seo-tag
-logo: "/assets/logos/P21_logo.png" # Site logo, also used in jekyll-seo-tag
-description: "Gendet data use" # Site description and default description, also used in jekyll-seo-tag
-url: "https://alembic.darn.es" # Site url, also used in jekyll-seo-tag
+title: "Gender Data Library - BFA" # Site name or title, also used in jekyll-seo-tag
+logo: "/assets/logos/P21_insd_site.svg" # Site logo, also used in jekyll-seo-tag
+description: "Gendet Data Library" # Site description and default description, also used in jekyll-seo-tag
+url: "https://johannesabele.github.io/gender-data-use-BFA/" # Site url, also used in jekyll-seo-tag
 baseurl: ""
-repo: "https://github.com/daviddarnes/alembic"
-email: "me@daviddarnes.com"
+repo: "https://github.com/johannesabele/gender-data-use-BFA " # Site repository, used in jekyll-seo-tag
+email: ""
 # disqus: "alembic-1" # Blog post comments, uncomment the option and set the site ID from your Disqus account
 # date_format: "%-d %B %Y" # Blog post date formatting using placeholder formatting
 # google_analytics: ""
@@ -104,25 +104,25 @@ css_inline: true # Will insert all styles into a single <style> block in the <he
 
 # 8. Site favicons & manifest icons
 favicons: # Favicons are also used in the manifest file. Syntax is 'size: path'
-  16: '/assets/logos/logo@16px.png'
-  32: '/assets/logos/logo@32px.png'
-  96: '/assets/logos/logo@96px.png'
-  120: '/assets/logos/logo@120px.png'
-  144: '/assets/logos/logo@144px.png'
-  180: '/assets/logos/logo@180px.png'
-  512: '/assets/logos/logo@512px.png'
-  1024: '/assets/logos/logo@1024px.png'
+  16: '/assets/logos/P21_icon.ico'
+  32: '/assets/logos/P21_icon.ico'
+  96: '/assets/logos/P21_icon.ico'
+  120: '/assets/logos/P21_icon.ico'
+  144: '/assets/logos/P21_icon.ico'
+  180: '/assets/logos/P21_icon.ico'
+  512: '/assets/logos/P21_icon.ico'
+  1024: '/assets/logos/P21_icon.ico'
 
 # 9. Site navigation
 navigation_header:
   - title: Home
     url: /
-  - title: Elements
-    url: /elements/
-  - title: Blog
-    url: /blog/
-  - title: Categories
-    url: /categories/
+  - title: Gender Data Library
+    url: /library/
+  - title: Civil Society Organisations - Beta
+    url: /csos/
+  - title: Methodology
+    url: /methodology/
   - title: Search
     url: /search/
 
@@ -131,11 +131,8 @@ navigation_footer:
     url: https://www.paris21.org/
 
 social_links: # Appears in sidebar. Set the urls then uncomment and comment out as desired
-  Twitter: https://twitter.com/DavidDarnes
-  LinkedIn: https://www.linkedin.com/in/daviddarnes
-  GitHub: https://github.com/daviddarnes
-  link: https://darn.es
-  RSS: /feed.xml
+  Twitter: https://x.com/ContanctPARIS21
+  LinkedIn: https://www.linkedin.com/company/paris21/
 
 sharing_links: # Appear at the bottom of single blog posts, add as desired. The value can be 'true' or the desired button colour
   Twitter: "#0d94e7"
