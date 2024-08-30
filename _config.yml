@@ -91,8 +91,8 @@ title: "Gender Data Library - BFA" # Site name or title, also used in jekyll-seo
 logo: "/assets/logos/P21_insd_site.svg" # Site logo, also used in jekyll-seo-tag
 description: "Gender Data Library" # Site description and default description, also used in jekyll-seo-tag
 url: "https://github.com/johannesabele/" # Site url, also used in jekyll-seo-tag
-baseurl: ""
-repo: "gender-data-use-BFA/" # Site repository, used in jekyll-seo-tag
+baseurl: "gender-data-use-BFA/"
+repo: "" # Site repository, used in jekyll-seo-tag
 email: ""
 # disqus: "alembic-1" # Blog post comments, uncomment the option and set the site ID from your Disqus account
 # date_format: "%-d %B %Y" # Blog post date formatting using placeholder formatting
