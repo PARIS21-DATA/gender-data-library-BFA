@@ -1,0 +1,44 @@
+{
+  "lang": "en-GB",
+  "name": "Gender Data Library - BFA",
+  "short_name": "GenderDataLibrary-BFA",
+  "theme_color": "#24292e",
+  "background_color": "#ffffff",
+  "icons": [
+      {
+        "src": "/assets/logos/P21_icon.ico",
+        "sizes": "16x16"
+      },
+      {
+        "src": "/assets/logos/P21_icon.ico",
+        "sizes": "32x32"
+      },
+      {
+        "src": "/assets/logos/P21_icon.ico",
+        "sizes": "96x96"
+      },
+      {
+        "src": "/assets/logos/P21_icon.ico",
+        "sizes": "120x120"
+      },
+      {
+        "src": "/assets/logos/P21_icon.ico",
+        "sizes": "144x144"
+      },
+      {
+        "src": "/assets/logos/P21_icon.ico",
+        "sizes": "180x180"
+      },
+      {
+        "src": "/assets/logos/P21_icon.ico",
+        "sizes": "512x512"
+      },
+      {
+        "src": "/assets/logos/P21_icon.ico",
+        "sizes": "1024x1024"
+      }
+      
+    ],
+  "start_url": "/",
+  "display": "standalone"
+}
