@@ -90,8 +90,8 @@ lang: en-GB # Set the site language
 title: "Gender Data Library - BFA" # Site name or title, also used in jekyll-seo-tag
 logo: "./assets/logos/P21_insd_site.svg" # Site logo, also used in jekyll-seo-tag
 description: "Gender Data Library" # Site description and default description, also used in jekyll-seo-tag
-url: "https://github.com/johannesabele/" # Site url, also used in jekyll-seo-tag
-baseurl: "gender-data-use-BFA/"
+url: "https://github.com/johannesabele/gender-data-use-BFA" # Site url, also used in jekyll-seo-tag
+baseurl: "/"
 repo: "" # Site repository, used in jekyll-seo-tag
 email: ""
 # disqus: "alembic-1" # Blog post comments, uncomment the option and set the site ID from your Disqus account
@@ -104,10 +104,10 @@ css_inline: true # Will insert all styles into a single <style> block in the <he
 
 # 8. Site favicons & manifest icons
 favicons: # Favicons are also used in the manifest file. Syntax is 'size: path'
-  16: './assets/logos/P21_icon.ico'
-  32: './assets/logos/P21_icon.ico'
-  96: './assets/logos/P21_icon.ico'
-  120: './assets/logos/P21_icon.ico'
+  16: '/assets/logos/P21_icon.ico'
+  32: '/assets/logos/P21_icon.ico'
+  96: '/assets/logos/P21_icon.ico'
+  120: '/assets/logos/P21_icon.ico'
   144: '/assets/logos/P21_icon.ico'
   180: '/assets/logos/P21_icon.ico'
   512: '/assets/logos/P21_icon.ico'

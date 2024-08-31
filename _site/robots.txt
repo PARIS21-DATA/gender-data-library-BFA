@@ -1,1 +1,1 @@
-Sitemap: http://localhost:4000/gender-data-use-BFA/sitemap.xml
+Sitemap: http://localhost:4000/sitemap.xml
