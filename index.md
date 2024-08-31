@@ -2,7 +2,7 @@
 title: Gender Data Library
 feature_text: |
   
-feature_image: "{{ site.baseurl }}/assets/gender_data_background_crop.png"
+feature_image: "./assets/gender_data_background_crop.png"
 excerpt: "Now it's on"
 ---
 
