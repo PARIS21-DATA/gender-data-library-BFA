@@ -27,9 +27,9 @@ To categorize and prioritize documents effectively, each document description wa
 To maintain a focused and relevant library, cutoff thresholds were established for inclusion. For the categories "Gender" and "Statistics and data" a cutoff score of 0.1 was defined (see Fig. 2 below). Documents scoring below this threshold were filtered out to exclude those not sufficiently related to gender data topics. This step ensured that the library remained targeted and relevant, providing users with high-quality documents that align with their search criteria and the library’s objectives.<br>
 <br>
 <br>
-{% include figure.html image="gender-data-use-BFA/assets/keywords_en.png" caption="Fig. 1: Gender data keywords covering various dimensions of gender data in Burkin Faso." width="800" height="1400" %}
+{% include figure.html image="./assets/keywords_en.png" caption="Fig. 1: Gender data keywords covering various dimensions of gender data in Burkin Faso." width="800" height="1400" %}
 
 <br>
 <br>
-{% include figure.html image="gender-data-use-BFA/assets/scores_analysis.png" caption="Fig. 2: Analysis of the distribution of scores for every category. Cutoff scores for Gender and Statistics and Data were determined after manual inspection of descriptions around the cutoff scores." width="1100" height="4000" %}
+{% include figure.html image="./assets/scores_analysis.png" caption="Fig. 2: Analysis of the distribution of scores for every category. Cutoff scores for Gender and Statistics and Data were determined after manual inspection of descriptions around the cutoff scores." width="1100" height="4000" %}
 

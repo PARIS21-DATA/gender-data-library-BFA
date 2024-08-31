@@ -141,11 +141,11 @@ body {
 }
 
 .content {
-  margin-top: 50px; /* Adjust the value as needed */
+  margin-top: 70px; /* Adjust the value as needed */
   @include breakpoint(break-1) {
-    width: 65%;
+    width: 55%;
   }
-  font-size: 20px; // Adjust the font size as needed
+  font-size: 19px; // Adjust the font size as needed
 }
 
 .share .button {
