@@ -127,7 +127,7 @@ body {
   @include flex-direction(column);
   @include flex(1, 0, auto);
   @include justify-content(flex-start);
-  margin-bottom: 1.6rem;
+  margin-bottom: 4rem;
   @include breakpoint(break-1) {
     @include justify-content(center);
     @include flex-direction(row);

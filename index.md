@@ -12,10 +12,3 @@ Welcome to the Gender Data Library of Burkina Faso, a comprehensive digital repo
 
 Driven by the need to consolidate scattered gender data and improve its accessibility, the INSD and PARIS21 have utilized advanced technologies like AI and language models to organize and filter information, ensuring that users can navigate the library with ease and find the most relevant content. We invite you to explore our collection and use these resources to better understand the gender landscape in Burkina Faso and drive positive change.
 
-<pre>
-
-
-
-
-
-</pre>
