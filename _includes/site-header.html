@@ -2,9 +2,61 @@
   <div class="container">
     {% if site.logo %}{% include site-logo.html %}{% endif %}
 
+  
     {% include nav-header.html %}
-  </div>
+    
+    <button id="language-switcher" class="language-switcher">
+      <span id="current-lang">{{ site.lang == 'fr-FR' ? 'Fr' : 'En' }}</span>
+    </button>  
 
+  </div>
+  
   {% include site-feature.html %}
 
 </header>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const button = document.getElementById('language-switcher');
+    const currentLang = document.getElementById('current-lang');
+
+    function getStoredLanguage() {
+      return localStorage.getItem('siteLang') || '{{ site.lang }}';
+    }
+
+    function setStoredLanguage(lang) {
+      localStorage.setItem('siteLang', lang);
+    }
+
+    function updateButtonText() {
+      const lang = getStoredLanguage();
+      if (lang === 'fr-FR') {
+        button.setAttribute('data-hover', 'Switch to English');
+        currentLang.textContent = 'Fr';
+      } else {
+        button.setAttribute('data-hover', 'Switch to French');
+        currentLang.textContent = 'En';
+      }
+    }
+
+    button.addEventListener('click', function() {
+      const lang = getStoredLanguage();
+      if (lang === 'fr-FR') {
+        setStoredLanguage('en-GB');
+        document.documentElement.lang = 'en-GB';
+        currentLang.textContent = 'En';
+      } else {
+        setStoredLanguage('fr-FR');
+        document.documentElement.lang = 'fr-FR';
+        currentLang.textContent = 'Fr';
+      }
+      updateButtonText();
+    });
+
+    // Set the initial language based on stored preference
+    const initialLang = getStoredLanguage();
+    document.documentElement.lang = initialLang;
+    updateButtonText();
+  });
+</script>
+

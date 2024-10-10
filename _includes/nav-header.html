@@ -1,25 +1,28 @@
-{% if site.navigation_header %}
-<nav class="nav  nav--header">
-  <ul class="list  list--nav">
-    {% for item in site.navigation_header %}
+{% if site.lang == "en-GB" %}
+   {% if site.navigation_header %}
+  <nav class="nav  nav--header">
+    <ul class="list  list--nav">
+      {% for item in site.navigation_header %}
 
-      {% if item.url contains '://' %}
-        {% assign url = item.url %}
-      {% else %}
-        {% assign url = item.url | relative_url %}
-      {% endif %}
+        {% if item.url contains '://' %}
+          {% assign url = item.url %}
+        {% else %}
+          {% assign url = item.url | relative_url %}
+        {% endif %}
 
-      <li class="item  item--nav{% if item.url == page.url %}  item--current{% endif %}">
-        <a href="{{ url }}">{{ item.title }}</a>
-      </li>
-    {% endfor %}
-  </ul>
-  <button class="button  button--nav" aria-label="Menu toggle">
-    {% include icon.html id="nav" title="Menu" %}
-  </button>
-</nav>
-{% else %}
-  {% include nav-default.html %}
+        <li class="item  item--nav{% if item.url == page.url %}  item--current{% endif %}">
+          <a href="{{ url }}">{{ item.title }}</a>
+        </li>
+      {% endfor %}
+
+    </ul>
+    <button class="button  button--nav" aria-label="Menu toggle">
+      {% include icon.html id="nav" title="Menu" %}
+    </button>
+  </nav>
+  {% else %}
+    {% include nav-default.html %}
+  {% endif %}
 {% endif %}
 
 <script type="text/javascript">
@@ -51,4 +54,5 @@
   window.addEventListener('resize', () => {
     collapseNav()
   })
+
 </script>

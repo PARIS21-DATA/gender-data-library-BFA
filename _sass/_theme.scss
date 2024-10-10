@@ -10,7 +10,7 @@ body {
 }
 
 .container {
-  width: 90%;
+  width: 100%;
   max-width: 100%;
   margin: 0 auto;
 }
@@ -65,7 +65,7 @@ body {
   display: inline-block;
   line-height: 0;
   max-height: 8rem;
-  padding-left: 0rem;
+  padding-left: 7rem;
   @include flexbox;
   @include align-items(center);
   img {
@@ -92,6 +92,8 @@ body {
 
 .footer {
   background: $headingColour;
+  padding-left: 7rem;
+  padding-right: 7rem;
   color: $captionColour;
   a {
     color: $captionColour;
@@ -143,9 +145,9 @@ body {
 .content {
   margin-top: 70px; /* Adjust the value as needed */
   @include breakpoint(break-1) {
-    width: 55%;
+    width: 50%;
   }
-  font-size: 19px; // Adjust the font size as needed
+  font-size: 20px; // Adjust the font size as needed
 }
 
 .share .button {

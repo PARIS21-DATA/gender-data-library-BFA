@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Searchable HTML Table</title>
     <link rel="stylesheet" type="text/css" href="../assets/styles.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
 </head>
 <body>
     <div class="table-container">
@@ -16,11 +17,19 @@
                 </div>
                 <div class="search-item">
                     <label for="startYear">Start Year:</label>
-                    <input type="number" id="startYear" class="form-control" placeholder="YYYY" min="1900" max="2100">
+                    <input type="number" id="startYear" name="startYear" class="form-control" placeholder="YYYY" min="1900" max="2100">
                 </div>
                 <div class="search-item">
                     <label for="endYear">End Year:</label>
-                    <input type="number" id="endYear" class="form-control" placeholder="YYYY" min="1900" max="2100">
+                    <input type="number" id="endYear" name="endYear" class="form-control" placeholder="YYYY" min="1900" max="2100">
+                </div>
+                <div class="search-item">
+                    <label for="languageSelect">Language:</label>
+                    <select id="languageSelect" class="form-control">
+                        <option value="">All Languages</option>
+                        <option value="en">en</option>
+                        <option value="fr">fr</option>
+                    </select>
                 </div>
                 <div class="search-item">
                     <label for="sectorSelect">Sector:</label>
@@ -48,16 +57,16 @@
                 <label><input type="checkbox" class="toggle-column" data-column="17"> Water and sanitation</label>
                 <label><input type="checkbox" class="toggle-column" data-column="18"> Women’s economic empowerment</label>
             </div>
-            <table class="data-table">
+            <table id="dataTable" class="display data-table">
                 <!-- HTML table will be inserted here -->
                   <thead>
     <tr style="text-align: right;">
-      <th>title</th>
-      <th>year</th>
-      <th>description</th>
-      <th>sector</th>
-      <th>source</th>
-      <th>language</th>
+      <th>Title</th>
+      <th>Year</th>
+      <th>Description</th>
+      <th>Sector</th>
+      <th>Source</th>
+      <th>Lang</th>
       <th>Agriculture and food security</th>
       <th>Conflict, migration, and security</th>
       <th>Education</th>
@@ -13747,81 +13756,76 @@
     </tr>
   </tbody>
 </table>
+            </table>
         </div>
     </div>
 
+    <!-- Include jQuery and DataTables JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const searchInput = document.getElementById('searchInput');
-            const startYearInput = document.getElementById('startYear');
-            const endYearInput = document.getElementById('endYear');
-            const sectorSelect = document.getElementById('sectorSelect');
-            const table = document.querySelector('table');
-            const rows = table.querySelectorAll('tbody tr');
-            const checkboxes = document.querySelectorAll('.toggle-column');
-            const headers = table.querySelectorAll('th');
+        // Custom filter for range of years
+        $.fn.dataTable.ext.search.push(
+            function(settings, data, dataIndex) {
+                var startYear = parseInt($('#startYear').val(), 10);
+                var endYear = parseInt($('#endYear').val(), 10);
+                var sector = $('#sectorSelect').val();
+                var lang = $('#languageSelect').val();
+                var description = $('#searchInput').val();
+                var year = parseInt(data[1]) || 0; // Assuming the year is in the second column
+                var sectorData = data[3]; // Assuming the sector is in the third column
+                var descriptonData = data[2]; // Assuming the description is in the second column
+                var langData = data[5]; // Assuming the language is in the fifth column
 
-            function filterRows() {
-                const searchTerm = searchInput.value.toLowerCase();
-                const startYear = parseInt(startYearInput.value, 10);
-                const endYear = parseInt(endYearInput.value, 10);
-                const selectedSector = sectorSelect.value.toLowerCase();
-
-                rows.forEach(row => {
-                    const description = row.cells[2].textContent.toLowerCase();
-                    const publicationDate = parseInt(row.cells[1].textContent, 10);
-                    const sector = row.cells[3].textContent.toLowerCase(); // Assuming sector is in the 4th column
-                    const matchesSearch = description.includes(searchTerm);
-                    const matchesYearRange = (!isNaN(startYear) ? publicationDate >= startYear : true) &&
-                                             (!isNaN(endYear) ? publicationDate <= endYear : true);
-                    const matchesSector = selectedSector ? sector === selectedSector : true;
-
-                    row.style.display = matchesSearch && matchesYearRange && matchesSector ? '' : 'none';
-                });
+                if ((isNaN(startYear) || year >= startYear) &&
+                    (isNaN(endYear) || year <= endYear) &&
+                    (sector === "" || sector === sectorData) && 
+                    (description === "" || descriptonData.toLowerCase().includes(description.toLowerCase())) && 
+                    (lang === "" || lang === langData)) {
+                    return true;
+                }
+                return false;
             }
+        );
 
-            function sortTable(columnIndex, ascending) {
-                const rowsArray = Array.from(rows);
-                rowsArray.sort((a, b) => {
-                    const aText = a.cells[columnIndex].textContent.trim();
-                    const bText = b.cells[columnIndex].textContent.trim();
-                    if (!isNaN(aText) && !isNaN(bText)) {
-                        return ascending ? aText - bText : bText - aText;
+        $(document).ready(function() {
+            // Initialize DataTable
+            var table = $('#dataTable').DataTable({
+                searching: true,
+                "orderClasses": false,
+                display: "hover",
+                autoWidth: false,
+                "oLanguage": {
+                    "sSearch": "Search table:"
+                },
+                "language": {
+                    "lengthMenu": "_MENU_ entries per page",
                     }
-                    return ascending ? aText.localeCompare(bText) : bText.localeCompare(aText);
                 });
-                rowsArray.forEach(row => table.querySelector('tbody').appendChild(row));
-            }
 
-            headers.forEach((header, index) => {
-                let ascending = true;
-                header.addEventListener('click', () => {
-                    sortTable(index, ascending);
-                    ascending = !ascending;
-                });
-            });
-
+            // Show/hide columns based on checkbox selection
+            const checkboxes = document.querySelectorAll('.toggle-column');
             checkboxes.forEach(checkbox => {
-                const column = checkbox.getAttribute('data-column');
-                const cells = table.querySelectorAll(`td:nth-child(${parseInt(column) + 1}), th:nth-child(${parseInt(column) + 1})`);
+                const column = table.column(parseInt(checkbox.getAttribute('data-column')));
+                // Hide column if checkbox is unchecked initially
                 if (!checkbox.checked) {
-                    cells.forEach(cell => {
-                        cell.classList.add('hidden');
-                    });
+                    column.visible(false);
                 }
 
+                // Toggle column visibility when checkbox is checked/unchecked
                 checkbox.addEventListener('change', function() {
-                    cells.forEach(cell => {
-                        cell.classList.toggle('hidden', !checkbox.checked);
-                    });
+                column.visible(checkbox.checked);
                 });
             });
 
-            searchInput.addEventListener('input', filterRows);
-            startYearInput.addEventListener('input', filterRows);
-            endYearInput.addEventListener('input', filterRows);
-            sectorSelect.addEventListener('change', filterRows);
+            // Redraw table when search inputs change
+            $('#startYear, #endYear, #sectorSelect, #searchInput, #languageSelect').on('input change', function() {
+                table.draw();
+            });
+
         });
     </script>
 </body>
+
 </html>

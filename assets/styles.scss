@@ -22,7 +22,7 @@ body {
 }
 
 .table-container {
-  width: 80%;
+  width: 90%;
   max-width: 90%;
   margin: 10px auto; /* Corrected margin to center align */
   padding: 0px;
@@ -39,26 +39,16 @@ h2 {
   position: relative; 
   font-size: 1.2em; 
   line-height: 1.2; 
-  max-width: 180px; 
+  max-width: 120px; 
   overflow: hidden; 
   text-overflow: ellipsis; 
   background-color: #f2f2f2;
-  padding: 10px;
+  padding-right: 20px;
+  padding-left: 5px;
   border-bottom: 2px solid #ddd;
 } /* Smaller font, reduced line height, and ellipsis for long titles */
-#tableContainer th::after { 
-  content: " ⇅"; 
-  font-size: 1.2em; 
-} /* Add sortable symbol */
-#tableContainer th.long-title { 
-  white-space: normal; 
-} /* Allow wrapping for long titles */
-#tableContainer th, #tableContainer td { 
-  min-width: 100px; 
-  padding: 8px;
-  width: 100%;
-  border-bottom: 1px solid #ddd;
-} /* Ensure cell width is at least the width of the title with the symbol */
+
+
 
 #tableContainer .search-container { 
   display: flex; 
@@ -72,16 +62,30 @@ h2 {
   flex-direction: column;
   margin-top: 0px;
 }
+
+#tableContainer .search-container .search-item:first-child {
+  flex: 2; /* Make the first search item wider */
+}
+
 #tableContainer .search-container input[type="number"], 
 #tableContainer .search-container input[type="text"], 
 #tableContainer .search-container select { 
-  width: 150px; 
+  max-width: 100%; 
   padding: 5px;
   border: 1px solid #ccc;
   border-radius: 4px;
 } /* Align the search boxes */
+
+#tableContainer .search-container input[type="number"]:focus, 
+#tableContainer .search-container input[type="text"]:focus, 
+#tableContainer .search-container select:focus { 
+  outline: 2px solid #1c84f3; /* Change the color to your desired color, e.g., blue */
+  border-color: #1c84f3; /* Optionally, change the border color as well */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Optionally, add a box shadow for a more pronounced effect */
+}
+
 #tableContainer .search-container input[type="text"] { 
-  width: 1000px; 
+  max-width: 100%; 
   flex-grow: 1; 
 } /* Make the description search box flexible */
 #tableContainer .search-container label { 
@@ -103,6 +107,11 @@ h2 {
   margin-right: 7px; 
 } /* Space between checkbox and label text */
 
+#tableContainer .checkbox-container input[type="checkbox"]:focus { 
+  outline: 2px solid #1c84f3; /* Change the color to your desired color, e.g., blue */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Optionally, add a box shadow for a more pronounced effect */
+}
+
 #tableContainer .subheader {
   margin-bottom: 10px; /* Adjust the value as needed */
 }
@@ -111,15 +120,68 @@ h2 {
   width: 100%; /* Ensure the table takes up the full width of its container */
   table-layout: auto; /* Allow the table to adjust its width based on its content */
   font-family:Arial, Helvetica, sans-serif;
-  font-size: 0.8em; 
+  font-size: 18px; 
   line-height: 1.2; 
   table-layout: auto; 
   border-collapse: collapse;
+  overflow-x: auto;
+  display: block;
 }
 
 #tableContainer .data-table tr:nth-child(even) {
   background-color: #f5f5f5; /* Shade every other row */
 }
+
+#tableContainer .data-table th:first-child,
+#tableContainer .data-table td:first-child {
+  min-width: 250px; /* Set your desired minimum width title */
+}
+
+#tableContainer .data-table th:nth-child(3),
+#tableContainer .data-table tr:nth-child(3) {
+  min-width: 250px; /* Set your desired minimum width description*/
+}
+
+/* Pagination */
+#tableContainer .subheader {
+  margin-bottom: 20px; /* Adjust the value as needed */
+}
+
+#tableContainer .pagination-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+#tableContainer .pagination {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0 20px;
+}
+
+#tableContainer .pagination li {
+  margin: 0 5px;
+}
+
+#tableContainer .pagination li a {
+  text-decoration: none;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  color: #333;
+}
+
+#tableContainer .pagination li a.active {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+
+// Language button style options
+
+
 
 
 @import "alembic";

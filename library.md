@@ -10,7 +10,4 @@ This library brings together resources from various sectors, including academia,
 
 To the search easier and more efficient, the library’s table format allows you to sort documents by different gender categories, such as education, health, economic empowerment, and food security. The scores regarding every category for each document indicate its relevance to these categories on a scale from 0-1, enabling you to quickly assess which documents are most aligned with your area of interest. You can sort the columns by clicking on the headers, allowing you to filter the documents by score, source, date, or any other attribute. You may click on the title to be redirected to the source url of the document.
 
-<pre>
-
-</pre>
 
