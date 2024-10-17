@@ -1,0 +1,8 @@
+<div class="language-switch">
+    {% if page.lang == "en" %}
+      <a href="{{ site.baseurl }}/fr{{ page.url | remove_first: '/en' }}" class="btn btn-switch">Fr</a>
+    {% elsif page.lang == "fr" %}
+      <a href="{{ site.baseurl }}/en{{ page.url | remove_first: '/fr' }}" class="btn btn-switch">En</a>
+    {% endif %}
+</div>
+  

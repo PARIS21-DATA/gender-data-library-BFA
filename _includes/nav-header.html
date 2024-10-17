@@ -1,29 +1,37 @@
-{% if site.lang == "en-GB" %}
-   {% if site.navigation_header %}
+{% assign nav_items = site.data.navigation[page.lang] %}
   <nav class="nav  nav--header">
     <ul class="list  list--nav">
-      {% for item in site.navigation_header %}
-
+      {% for item in nav_items %}
         {% if item.url contains '://' %}
           {% assign url = item.url %}
         {% else %}
           {% assign url = item.url | relative_url %}
         {% endif %}
-
         <li class="item  item--nav{% if item.url == page.url %}  item--current{% endif %}">
           <a href="{{ url }}">{{ item.title }}</a>
         </li>
-      {% endfor %}
-
+        {% endfor %}
+        
+        <li class="item  item--nav">
+          {% if page.lang == "en" %}
+            <a href="{{ site.baseurl }}/fr{{ page.url | remove_first: '/en' }}" class="btn btn-switch">
+              <span class="world-icon">&#x1F310</span> Fr
+            </a>
+          {% elsif page.lang == "fr" %}
+            <a href="{{ site.baseurl }}/en{{ page.url | remove_first: '/fr' }}" class="btn btn-switch">
+              <span class="world-icon">&#x1F310</span>En
+            </a>
+          {% endif %}
+        </li>
     </ul>
+    
+
+
     <button class="button  button--nav" aria-label="Menu toggle">
       {% include icon.html id="nav" title="Menu" %}
     </button>
   </nav>
-  {% else %}
-    {% include nav-default.html %}
-  {% endif %}
-{% endif %}
+
 
 <script type="text/javascript">
   // Get list and button
@@ -54,5 +62,4 @@
   window.addEventListener('resize', () => {
     collapseNav()
   })
-
 </script>

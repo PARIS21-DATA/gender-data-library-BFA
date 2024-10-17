@@ -1,8 +1,14 @@
 <footer class="footer">
   <div class="container">
-    <div class="copyright  typeset">
-      <small class="small">&copy; {{ site.time | date: '%Y' }} {{ site.title }} </small>
-    </div>
+    {% if page.lang == 'fr' %}
+      <div class="copyright  typeset">
+        <small class="small">&copy; {{ site.time | date: '%Y' }} PARIS21. TOUS DROITS RÉSERVÉS. </small>
+      </div>
+      {% else %}
+      <div class="copyright  typeset">
+        <small class="small">&copy; {{ site.time | date: '%Y' }} PARIS21. ALL RIGHTS RESERVED. </small>
+      </div>
+    {% endif %}
 
     {% include nav-footer.html %}
   </div>

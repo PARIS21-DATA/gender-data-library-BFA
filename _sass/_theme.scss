@@ -35,6 +35,9 @@ body {
     }
   }
 }
+.copyright {
+  margin-top: 23px; /* Adjust the value as needed to add more space to the top */
+}
 
 
 
@@ -77,6 +80,8 @@ body {
 .nav {
   a {
     padding: .2rem;
+    font-size: 1.1em;
+    font-family: 'Calibri', sans-serif;
   }
   &--social a {
     display: inline-block;
@@ -143,11 +148,13 @@ body {
 }
 
 .content {
+  margin-left: 50px;
+  margin-right: 50px;
   margin-top: 70px; /* Adjust the value as needed */
   @include breakpoint(break-1) {
     width: 50%;
   }
-  font-size: 20px; // Adjust the font size as needed
+  font-size: 18.7px; // Adjust the font size as needed
 }
 
 .share .button {
@@ -186,6 +193,8 @@ body {
   list-style: none;
   &--nav {
     overflow: hidden;
+    margin-top: 0.8em;
+    margin-right: 0.8em;
     margin-bottom: var(--listHeight, 0);
   }
   .item--post,
@@ -210,6 +219,38 @@ body {
       color: $captionColour;
     }
   }
+}
+
+// Language switcher
+// Language button style options
+.language-switch {
+  margin-left: auto;
+}
+
+.btn-switch {
+  min-width: 73px; /* Increase padding to make the button wider */
+  text-decoration: none;
+  color: #f5faff;
+  background-color: #224281;
+  border-radius: 0.1em;
+  margin-left: 1.5em; /* Add horizontal space between the language button and the last nav item */
+  margin-right: 1em; 
+  display: inline-flex; /* Ensure the button content is properly aligned */
+  align-items: center; /* Center the content vertically */
+  white-space: nowrap; /* Prevent text from wrapping */
+  font-family: 'Calibri', sans-serif;
+  transition: background-color 0.1s ease; 
+}
+
+.btn-switch:hover .world-icon {
+  text-shadow: 0 0 0 $hoverColour; /* Change to desired hover color */
+}
+
+.world-icon {
+  margin-right: 0.2em; /* Space between icon and text */
+  font-size: 1.2em; /* Adjust size as needed */
+  color: transparent;
+  text-shadow: 0 0 0 #f5faff;
 }
 
 
@@ -305,7 +346,7 @@ input[type="color"],
 textarea,
 select {
   padding: .6rem 1.2rem;
-  margin-bottom: .6rem;
+  margin-bottom: .6rem; 
   transition: color .1s, background-color .1s, border .1s;
   line-height: inherit;
   border: none;

@@ -1,0 +1,19 @@
+en:
+  - title: Home
+    url: /en/
+  - title: Gender Data Library
+    url: /en/library/
+  - title: Insights from CSOs
+    url: /en/csos/
+  - title: Methodology
+    url: /en/methodology/
+    
+fr:
+  - title: Accueil
+    url: /fr/
+  - title: Bibliothèque
+    url: /fr/library/
+  - title: Perspectives des OSC
+    url: /fr/csos/
+  - title: Méthodologie
+    url: /fr/methodology/

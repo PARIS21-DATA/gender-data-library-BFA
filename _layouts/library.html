@@ -23,6 +23,10 @@ layout: default
   
 </main>
 
-{% include searchable_table.html style="text-align: center;" %}
+{% if page.lang == 'fr' %}
+  {% include searchable_table_fr.html style="text-align: center;" %}
+  {% else %}
+  {% include searchable_table_en.html style="text-align: center;" %}
+{% endif %}
 
 {% include site-footer.html %}

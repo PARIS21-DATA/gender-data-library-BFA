@@ -1,8 +1,8 @@
-const version = '20241010111359';
+const version = '20241017121859';
 const cacheName = `static::${version}`;
 
 const buildContentBlob = () => {
-  return ["/gender-data-use-BFA/general/2016/08/29/example-post-three/","/gender-data-use-BFA/history/external%20sources/2016/08/28/example-post-two/","/gender-data-use-BFA/general/external%20sources/2016/08/27/example-post-one/","/gender-data-use-BFA/csos/","/gender-data-use-BFA/blog/","/gender-data-use-BFA/","/gender-data-use-BFA/library/","/gender-data-use-BFA/manifest.json","/gender-data-use-BFA/methodology/","/gender-data-use-BFA/offline/","/gender-data-use-BFA/assets/search.json","/gender-data-use-BFA/search/","/gender-data-use-BFA/assets/styles.css","/gender-data-use-BFA/redirects.json","/gender-data-use-BFA/blog/page2/","/gender-data-use-BFA/feed.xml","/gender-data-use-BFA/sitemap.xml","/gender-data-use-BFA/robots.txt","/gender-data-use-BFA/assets/styles.css.map","/gender-data-use-BFA/assets/logos/P21_insd_site.svg", "/gender-data-use-BFA/assets/default-offline-image.png", "/gender-data-use-BFA/assets/scripts/fetch.js"
+  return ["/gender-data-use-BFA/general/2016/08/29/example-post-three/","/gender-data-use-BFA/history/external%20sources/2016/08/28/example-post-two/","/gender-data-use-BFA/general/external%20sources/2016/08/27/example-post-one/","/gender-data-use-BFA/fr/csos/","/gender-data-use-BFA/en/csos/","/gender-data-use-BFA/blog/","/gender-data-use-BFA/fr/","/gender-data-use-BFA/en/","/gender-data-use-BFA/en/library/","/gender-data-use-BFA/fr/library/","/gender-data-use-BFA/manifest.json","/gender-data-use-BFA/fr/methodology/","/gender-data-use-BFA/en/methodology/","/gender-data-use-BFA/offline/","/gender-data-use-BFA/assets/search.json","/gender-data-use-BFA/assets/styles.css","/gender-data-use-BFA/redirects.json","/gender-data-use-BFA/blog/page2/","/gender-data-use-BFA/feed.xml","/gender-data-use-BFA/sitemap.xml","/gender-data-use-BFA/robots.txt","/gender-data-use-BFA/assets/styles.css.map","/gender-data-use-BFA/assets/logos/P21_insd_site.svg", "/gender-data-use-BFA/assets/default-offline-image.png", "/gender-data-use-BFA/assets/scripts/fetch.js"
   ]
 }
 
