@@ -232,7 +232,7 @@ body {
   min-width: 73px; /* Increase padding to make the button wider */
   text-decoration: none;
   color: #f5faff;
-  background-color: #2951a1;
+  background-color: #19418f;
   border-radius: 0.1em;
   margin-left: 1.5em; /* Add horizontal space between the language button and the last nav item */
   margin-right: 1em; 
@@ -243,9 +243,13 @@ body {
   transition: background-color 0.1s ease; 
 }
 
+.item--nav:first-child a:hover { /* For correct Github integration twice */
+  background-color: transparent; 
+}
+
 .item--nav:last-child a:hover {
   color: #f5faff; /* Change font color of btn when hovered */
-  background-color: #0d3179;
+  background-color: #0b2c6e;
 }
 
 .item--nav:first-child a:hover {
