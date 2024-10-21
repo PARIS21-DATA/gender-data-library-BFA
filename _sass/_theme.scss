@@ -149,8 +149,8 @@ body {
 
 .content {
   word-break: break-word;
-  margin-left: 50px;
-  margin-right: 50px;
+  margin-left: 10%;
+  margin-right: 10%;
   margin-top: 70px; /* Adjust the value as needed */
   @include breakpoint(break-1) {
     width: 50%;
