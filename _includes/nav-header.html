@@ -15,11 +15,11 @@
         <li class="item  item--nav">
           {% if page.lang == "en" %}
             <a href="{{ site.baseurl }}/fr{{ page.url | remove_first: '/en' }}" class="btn btn-switch">
-              <span class="world-icon">&#x1F310</span> Fr
+              <span class="world-icon">&#x1F310</span> <span class="lang-text">Fr</span>
             </a>
           {% elsif page.lang == "fr" %}
             <a href="{{ site.baseurl }}/en{{ page.url | remove_first: '/fr' }}" class="btn btn-switch">
-              <span class="world-icon">&#x1F310</span>En
+              <span class="world-icon">&#x1F310</span> <span class="lang-text">En</span>
             </a>
           {% endif %}
         </li>

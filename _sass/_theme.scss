@@ -68,7 +68,7 @@ body {
   display: inline-block;
   line-height: 0;
   max-height: 8rem;
-  padding-left: 7rem;
+  padding-left: 7%;
   @include flexbox;
   @include align-items(center);
   img {
@@ -194,8 +194,8 @@ body {
   list-style: none;
   &--nav {
     overflow: hidden;
-    margin-top: 0.5em;
-    margin-right: 0.8em;
+    margin-top: 0.52em;
+    margin-right: 0.9em;
     margin-bottom: var(--listHeight, 0);
   }
   .item--post,
@@ -228,20 +228,23 @@ body {
   margin-left: auto;
 }
 
-.btn-switch {
-  min-width: 73px; /* Increase padding to make the button wider */
+.btn-switch { 
   text-decoration: none;
   color: #f5faff;
   background-color: #19418f;
   border-radius: 0.1em;
   margin-left: 1.5em; /* Add horizontal space between the language button and the last nav item */
-  margin-right: 1em; 
   display: inline-flex; /* Ensure the button content is properly aligned */
   align-items: center; /* Center the content vertically */
   white-space: nowrap; /* Prevent text from wrapping */
   font-family: 'Calibri', sans-serif;
   transition: background-color 0.1s ease; 
 }
+
+.btn-switch .lang-text {
+  margin-right: 0.2em; /* Add space to the right of En and Fr */
+}
+
 
 .item--nav:last-child a:hover {
   color: #f5faff; /* Change font color of btn when hovered */
