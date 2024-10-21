@@ -70,7 +70,7 @@ defaults:
     scope:
       path: ""
     values:
-      image: "/assets/gender_data_background_crop.png" # Default image for sharing
+      image: "/assets/gender_data_mobile.png" # Default image for sharing
   -
     scope:
       path: ""

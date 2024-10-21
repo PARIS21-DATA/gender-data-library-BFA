@@ -243,10 +243,6 @@ body {
   transition: background-color 0.1s ease; 
 }
 
-.item--nav:first-child a:hover { /* For correct Github integration twice */
-  background-color: transparent; 
-}
-
 .item--nav:last-child a:hover {
   color: #f5faff; /* Change font color of btn when hovered */
   background-color: #0b2c6e;
