@@ -42,8 +42,10 @@
   const collapseNav = () => {
     if (document.body.clientWidth < 640) {
       navList.style.setProperty('--listHeight', `-${navList.offsetHeight}px`)
+      navList.classList.add('expanded') // Add class when expanded
     } else {
       navList.removeAttribute('style')
+      navList.classList.remove('expanded') // Remove class when collapsed
     }
 
     button.onclick = () => {

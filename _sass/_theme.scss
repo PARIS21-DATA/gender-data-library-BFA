@@ -149,8 +149,8 @@ body {
 
 .content {
   word-break: break-word;
-  margin-left: 10%;
-  margin-right: 10%;
+  margin-left: 8%;
+  margin-right: 7%;
   margin-top: 70px; /* Adjust the value as needed */
   @include breakpoint(break-1) {
     width: 50%;
@@ -194,7 +194,7 @@ body {
   list-style: none;
   &--nav {
     overflow: hidden;
-    margin-top: 0.52em;
+    margin-top: 0em;
     margin-right: 0.9em;
     margin-bottom: var(--listHeight, 0);
   }
@@ -203,6 +203,10 @@ body {
   .item--category {
     margin-left: 0;
   }
+}
+
+.list--nav.expanded .item--nav:first-child {
+  margin-top: 3em; /* Adjust the value as needed to add vertical space */
 }
 
 .item {
