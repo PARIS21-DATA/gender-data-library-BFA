@@ -35,9 +35,6 @@ body {
     }
   }
 }
-.copyright {
-  margin-top: 23px; /* Adjust the value as needed to add more space to the top */
-}
 
 
 
@@ -86,6 +83,7 @@ body {
   &--social a {
     display: inline-block;
     line-height: 1;
+    margin-right: 0em;
   }
 }
 
@@ -97,8 +95,8 @@ body {
 
 .footer {
   background: $headingColour;
-  padding-left: 7rem;
-  padding-right: 7rem;
+  padding-left: 7%;
+  padding-right: 7%;
   color: $captionColour;
   a {
     color: $captionColour;
