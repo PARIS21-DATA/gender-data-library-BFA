@@ -148,6 +148,7 @@ body {
 }
 
 .content {
+  word-break: break-word;
   margin-left: 50px;
   margin-right: 50px;
   margin-top: 70px; /* Adjust the value as needed */
@@ -193,7 +194,7 @@ body {
   list-style: none;
   &--nav {
     overflow: hidden;
-    margin-top: 0.8em;
+    margin-top: 0.5em;
     margin-right: 0.8em;
     margin-bottom: var(--listHeight, 0);
   }
@@ -231,7 +232,7 @@ body {
   min-width: 73px; /* Increase padding to make the button wider */
   text-decoration: none;
   color: #f5faff;
-  background-color: #224281;
+  background-color: #20448d;
   border-radius: 0.1em;
   margin-left: 1.5em; /* Add horizontal space between the language button and the last nav item */
   margin-right: 1em; 
@@ -242,8 +243,9 @@ body {
   transition: background-color 0.1s ease; 
 }
 
-.btn-switch:hover .world-icon {
-  text-shadow: 0 0 0 $hoverColour; /* Change to desired hover color */
+.item--nav:last-child a:hover {
+  color: #f5faff; /* Change font color of btn when hovered */
+  background-color: #112c62;
 }
 
 .world-icon {

@@ -3,7 +3,7 @@ title: Bibliothèque de Données sur le Genre
 feature_text: |
   
 feature_image: "../assets/gender_data_background_crop.png"
-excerpt: "Now it's on"
+excerpt: "Bibliothèque de Données sur le Genre"
 lang: fr
 permalink: /fr/
 ---

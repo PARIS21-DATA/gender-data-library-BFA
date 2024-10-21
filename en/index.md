@@ -5,7 +5,7 @@ lang: en
 permalink: /en/
   
 feature_image: "../assets/gender_data_background_crop.png"
-excerpt: "Now it's on"
+excerpt: "Gender Data Library"
 ---
 
 

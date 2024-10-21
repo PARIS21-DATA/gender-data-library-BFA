@@ -70,7 +70,7 @@ defaults:
     scope:
       path: ""
     values:
-      image: "/assets/gender_data_cover.jpg" # Default image for sharing
+      image: "/assets/gender_data_background_crop.png" # Default image for sharing
   -
     scope:
       path: ""
@@ -92,7 +92,7 @@ description: "Gender Data Library" # Site description and default description, a
 url: "https://johannesabele.github.io" # Site url, also used in jekyll-seo-tag
 baseurl: "/gender-data-use-BFA"
 repo: "" # Site repository, used in jekyll-seo-tag
-email: ""
+email: "johannes.abele@outlook.com"
 # disqus: "alembic-1" # Blog post comments, uncomment the option and set the site ID from your Disqus account
 # date_format: "%-d %B %Y" # Blog post date formatting using placeholder formatting
 # google_analytics: ""
@@ -103,14 +103,14 @@ css_inline: true # Will insert all styles into a single <style> block in the <he
 
 # 8. Site favicons & manifest icons
 favicons: # Favicons are also used in the manifest file. Syntax is 'size: path'
-  16: '/assets/logos/P21_icon.ico'
-  32: '/assets/logos/P21_icon.ico'
-  96: '/assets/logos/P21_icon.ico'
-  120: '/assets/logos/P21_icon.ico'
-  144: '/assets/logos/P21_icon.ico'
-  180: '/assets/logos/P21_icon.ico'
-  512: '/assets/logos/P21_icon.ico'
-  1024: '/assets/logos/P21_icon.ico'
+  16: '/assets/logos/gender_data_library_icon.png'
+  32: '/assets/logos/gender_data_library_icon.png'
+  96: '/assets/logos/gender_data_library_icon.png'
+  120: '/assets/logos/gender_data_library_icon.png'
+  144: '/assets/logos/gender_data_library_icon.png'
+  180: '/assets/logos/gender_data_library_icon.png'
+  512: '/assets/logos/gender_data_library_icon.png'
+  1024: '/assets/logos/gender_data_library_icon.png'
 
 # 9. Site navigation
 default_lang: en

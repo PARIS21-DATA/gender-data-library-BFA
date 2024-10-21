@@ -1,53 +1,61 @@
-{% if include.name %}
-  {% assign name = include.name %}
-{% else %}
-  {% assign name = "Contact" %}
-{% endif %}
+{% if page.lang == 'fr' %}
+  <form class="form--{{ name_id }}" method="POST" action="https://formspree.io/f/mbljjwal">
+    <fieldset>
+      <label class="label" for="name--{{ name_id }}">Nom: <span class="required">*</span></label>
+      <input class="input" id="name--{{ name_id }}" type="text" name="name" value="" placeholder="Votre nom" required="required" />
 
-{% assign name_id = name | downcase | replace: " ", "-" %}
+      <label class="label" for="email--{{ name_id }}">Adresse e-mail: <span class="required">*</span></label>
+      <input class="input" id="email--{{ name_id }}" type="email" name="email" value="" placeholder="email@website.com" required="required" />
 
-{% if include.thanks_url %}
-  {% assign thanks_url = include.thanks_url %}
-{% else %}
-  {% assign thanks_url = "/thanks/" %}
-{% endif %}
+      <label class="label" for="message--{{ name_id }}">Message: <span class="required">*</span></label>
+      <textarea class="textarea" id="message--{{ name_id }}" name="message" placeholder="Votre message..." required="required"></textarea>
 
-<form class="form  form--{{ name_id }}" method="post" name="{{ name }}" action="{{ thanks_url }}"
-  {% if include.netlify_form %}
-    netlify-honeypot="bot-field"
-    netlify
-  {% endif %}
->
-  <fieldset class="fieldset  form__fieldset">
-    <legend class="legend form__legend">{{ name }}</legend>
-    <label class="label" for="name--{{ name_id }}">Name: <span class="required">*</span></label>
-    <input class="input" id="name--{{ name_id }}" type="text" name="name" value="" placeholder="Your Name" required="required" />
+      <!-- your other form fields go here -->
 
-    <label class="label" for="email--{{ name_id }}">Email Address: <span class="required">*</span></label>
-    <input class="input" id="email--{{ name_id }}" type="email" name="email" value="" placeholder="email@website.com" required="required" />
+      <input class="button" type="submit" value="Envoyer" />
+      <br/>
+      <small class="small"><span class="required">*</span> indique un champ requis</small>
 
-    <label class="label" for="message--{{ name_id }}">Message: <span class="required">*</span></label>
-    <textarea class="textarea" id="message--{{ name_id }}" name="message" placeholder="Your message..." required="required"></textarea>
-
-    <input class="button" type="submit" value="Send message" />
-    <br/>
-    <small class="small"><span class="required">*</span> indicates a required field</small>
-
-    {% if include.netlify_form %}
-      <label  style="display:none">Don’t fill this out if you’re human: <input name="bot-field" /></label>
-    {% else %}
-      <input type="text" name="_gotcha" style="display:none">
-      <input type="hidden" name="_subject" value="{{ site.title }} submission from {{ name }}">
-      <input type="hidden" name="_next" value="{{ thanks_url }}" />
-    {% endif %}
-  </fieldset>
-</form>
-{% unless include.netlify_form %}
-  <script>
-    var email = "{{ site.email | split: "" | reverse | join: "" }}";
-    var unraveledEmail = email.split("").reverse().join("");
-    var form = document.querySelector(".form--{{ name_id }}");
-      form.setAttribute("action", "https://formspree.io/" + unraveledEmail);
-  </script>
+      {% if include.netlify_form %}
+        <label style="display:none">Ne remplissez pas ceci si vous êtes humain : <input name="bot-field" /></label>
+      {% else %}
+        <input type="text" name="_gotcha" style="display:none">
+        <input type="hidden" name="_subject" value="{{ site.title }} submission from {{ name }}">
+        <input type="hidden" name="_next" value="{{ thanks_url }}" />
+      {% endif %}
+    </fieldset>
+  </form>
+  {% unless include.netlify_form %}
   <noscript>Please enable JavaScript to use the form.</noscript>
-{% endunless %}
+  {% endunless %}
+{%else %}
+  <form class="form--{{ name_id }}" method="POST" action="https://formspree.io/f/mbljjwal">
+    <fieldset>
+      <label class="label" for="name--{{ name_id }}">Name: <span class="required">*</span></label>
+      <input class="input" id="name--{{ name_id }}" type="text" name="name" value="" placeholder="Your Name" required="required" />
+
+      <label class="label" for="email--{{ name_id }}">Email Address: <span class="required">*</span></label>
+      <input class="input" id="email--{{ name_id }}" type="email" name="email" value="" placeholder="email@website.com" required="required" />
+
+      <label class="label" for="message--{{ name_id }}">Message: <span class="required">*</span></label>
+      <textarea class="textarea" id="message--{{ name_id }}" name="message" placeholder="Your message..." required="required"></textarea>
+
+      <!-- your other form fields go here -->
+
+      <input class="button" type="submit" value="Send message" />
+      <br/>
+      <small class="small"><span class="required">*</span> indicates a required field</small>
+
+      {% if include.netlify_form %}
+        <label style="display:none">Don’t fill this out if you’re human: <input name="bot-field" /></label>
+      {% else %}
+        <input type="text" name="_gotcha" style="display:none">
+        <input type="hidden" name="_subject" value="{{ site.title }} submission from {{ name }}">
+        <input type="hidden" name="_next" value="{{ thanks_url }}" />
+      {% endif %}
+    </fieldset>
+  </form>
+  {% unless include.netlify_form %}
+  <noscript>Please enable JavaScript to use the form.</noscript>
+  {% endunless %}
+{% endif %}
