@@ -153,7 +153,16 @@ body {
   @include breakpoint(break-1) {
     width: 50%;
   }
-  font-size: 18.7px; // Adjust the font size as needed
+  font-size: 17.6px; // Adjust the font size as needed
+}
+
+.content-aboutus {
+  @extend .content;
+  word-break: break-word;
+  @include breakpoint(break-1) {
+    width: 70%; // Override specific styles if needed
+  }
+  line-height: 1.5; // Override specific styles if needed
 }
 
 .share .button {

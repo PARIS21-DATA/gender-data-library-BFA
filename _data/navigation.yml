@@ -7,8 +7,8 @@ en:
     url: /en/csos/
   - title: Methodology
     url: /en/methodology/
-  - title: Contact
-    url: /en/contact/
+  - title: About us
+    url: /en/about-us/
     
 fr:
   - title: Accueil
@@ -19,5 +19,5 @@ fr:
     url: /fr/csos/
   - title: Méthodologie
     url: /fr/methodology/
-  - title: Contact
-    url: /fr/contact/
+  - title: À propos de nous
+    url: /fr/about-us/

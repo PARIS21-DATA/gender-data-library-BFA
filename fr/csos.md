@@ -1,6 +1,6 @@
 ---
 title: Perspectives des OSC
-layout: csos
+layout: methodology
 excerpt: "Library"
 aside: true
 lang: fr

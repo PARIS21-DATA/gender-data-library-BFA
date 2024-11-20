@@ -1,6 +1,6 @@
 ---
 title: Insights from CSOs
-layout: csos
+layout: methodology
 excerpt: "Library"
 aside: true
 lang: en
