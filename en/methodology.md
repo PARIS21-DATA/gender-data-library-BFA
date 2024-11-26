@@ -17,8 +17,8 @@ In the following, the process of sourcing, processing, and categorizing document
 <br/>Once the documents were collected, a systematic processing phase was initiated to prepare the data for analysis and classification. First, the text from each document was extracted. If the document was in a scanned format, Optical Character Recognition (OCR) was applied to convert it into machine-readable text. After text extraction, the language of each document was detected using a Google's open-source language detection library to facilitate proper classification and subsequent analysis. To ensure consistent tracking and management, IDs were generated through hashing of the parsed text for each document, which were then used throughout the subsequent stages to maintain consistency and prevent duplication.
 <br/><br/>
 
-3. **Duplicates Removal**
-<br/>To avoid redundancy and maintain the quality of the library, duplicate documents were systematically removed. IDs were then compared to identify identical documents across the dataset. When duplicates were found, only one instance of each document was retained. This step was essential to ensure that users would have access to a streamlined and unique set of documents, avoiding confusion and improving search efficiency within the library.
+3. **Removal of Duplicates and Unrelated Documents**
+<br/>To avoid redundancy and maintain the quality of the library, duplicate documents and documents not related to Burkina Faso were systematically removed. For the duplicate removal, IDs were compared to identify identical documents across the dataset. When duplicates were found, only one instance of each document was retained. For the removal of documents not related to Burkina Faso, a document was kept when it either contained 'Burkina Faso' in the title or at least 8 times in the document's text. This ensured the country focus throughout the document corpus.
 <br/><br/>
 
 4. **Description Retrieval**
@@ -31,6 +31,15 @@ In the following, the process of sourcing, processing, and categorizing document
 
 6. **Cutoff Definitions**
 <br/>To maintain a focused and relevant library, cutoff thresholds were established for inclusion. For the categories "Gender" and "Statistics and data" a cutoff score of 0.1 was defined (see Fig. 2 below). Documents scoring below this threshold were filtered out to exclude those not sufficiently related to gender data topics. This step ensured that the library remained targeted and relevant, providing users with high-quality documents that align with their search criteria and the library’s objectives.
+<br/><br/><br/>
+
+
+**Limitations** <br/> - *Search Engine Limitations*: During the document sourcing for academic articles, the approach relied on Google Scholar’s search algorithm, which is not publicly available and therefore shares the same limitations. However, it can be assumed that a sophisticated algorithm is used to make the search as effective as possible.
+<br/> - *Duplicate Removal*: For the removal of duplicates, the approach only removes documents if they contain exactly the same content through the comparison of their IDs (hashed PDF content). Documents that are just slightly different (e.g., documents with an additional title page) would not be excluded.
+<br/>- *Partial Text Analysis*: When trying to retrieve document descriptions, only the first 2000 characters are taken into account due to computational limitations. Usually, this captures a wide enough context to generate a fitting description, but it can lead to inaccurate descriptions in some cases.
+<br/>- *Model Limitations for Relevance Scoring*: Due to the issue of missing labeled data for the predefined categories, the zero-shot classifier BART-Large-MNLI was employed. As a zero-shot classifier, it has not been specifically trained for gender data-focused texts. This may reduce accuracy compared to models fine-tuned on relevant datasets.
+
+
 
 <br/><br/>
 {% include figure.html image="/assets/keywords_en.png" caption="Fig. 1: Gender data keywords covering various dimensions of gender data in Burkin Faso." width="800" height="1400" %}
