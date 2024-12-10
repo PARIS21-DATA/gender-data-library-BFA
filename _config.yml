@@ -89,8 +89,8 @@ encoding: utf-8 # Make sure the encoding is right
 title: "Gender Data Library" # Site name or title, also used in jekyll-seo-tag
 logo: "/assets/logos/P21_insd_site.svg" # Site logo, also used in jekyll-seo-tag
 description: "Gender Data Library" # Site description and default description, also used in jekyll-seo-tag
-url: "https://johannesabele.github.io" # Site url, also used in jekyll-seo-tag
-baseurl: "/gender-data-use-BFA"
+url: "https://paris21-data.github.io" # Site url, also used in jekyll-seo-tag
+baseurl: "/gender-data-library-BFA"
 repo: "" # Site repository, used in jekyll-seo-tag
 email: "johannes.abele@outlook.com"
 # disqus: "alembic-1" # Blog post comments, uncomment the option and set the site ID from your Disqus account
