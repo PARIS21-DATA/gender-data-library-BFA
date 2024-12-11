@@ -42,7 +42,7 @@ In the following, the process of sourcing, processing, and categorizing document
 
 
 <br/><br/>
-{% include figure.html image="/assets/keywords_en.png" caption="Fig. 1: Gender data keywords covering various dimensions of gender data in Burkin Faso." width="800" height="1400" %}
+{% include figure.html image="/assets/keywords_en.png" caption="Fig. 1: Gender data keywords covering various dimensions of gender data in Burkin Faso." width="650" height="1200" %}
 
 
 <br>
